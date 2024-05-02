@@ -4,7 +4,8 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     GENDER_CHOICES = [
-        
+       ("Male", "Male"),
+       ("Female", "Female"), 
     ]
     firstname = models.CharField(max_length=64)
     lastname = models.CharField(max_length=64)
