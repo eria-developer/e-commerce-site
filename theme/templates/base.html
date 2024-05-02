@@ -1,145 +1,108 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Django Tailwind</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<head>
-	<title>Django Tailwind</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	{% tailwind_css %}
-</head>
+	<style>
+		.fa-shopping-cart::before {
+			 background: transparent;
+		 }
+	 </style>
 
-<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-	<div class="container mx-auto">
-		<!-- Main navigation container -->
-		<nav
-			class="flex-no-wrap relative flex w-full items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4 my-3">
-			<div class="flex w-full flex-wrap items-center justify-between px-3">
-				<!-- Hamburger button for mobile view -->
-				<button
-					class="block border-0 bg-transparent px-2 text-black/50 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
-					type="button" data-twe-collapse-init data-twe-target="#navbarSupportedContent1"
-					aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-					<!-- Hamburger icon -->
-				</button>
+    {% tailwind_css %}
+  </head>
 
-				<!-- Collapsible navigation container -->
-				<div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
-					id="navbarSupportedContent1" data-twe-collapse-item>
-					<!-- Logo -->
-					<a class="mb-4 me-5 ms-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-						href={% url "home" %}>
-						<span class="text-2xl font-bold">Shopper</span> <img src={% static 'images/myjumia-top-logo.png'
-							%} style="height: 25px" alt="shopper Logo" loading="lazy" class="ml-2" />
+  <body class="font-serif leading-normal tracking-normal">
+    <div class="container mx-auto">
+		<nav class="bg-white border-gray-200 dark:bg-gray-900">
+			<div class="flex flex-wrap items-center mx-auto p-4">
+				<div class="w-1/6">
+					<a href={% url "home" %} class="flex items-center space-x-3 rtl:space-x-reverse">
+						<img src={% static 'images/myjumia-top-logo.png' %} class="h-8" alt="Shopper Logo" />
+						<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Shopper</span>
 					</a>
-					<!-- Left navigation links -->
-					<ul class="list-style-none me-auto flex flex-col ps-0 lg:flex-row" data-twe-navbar-nav-ref>
-						<li class="mb-4 lg:mb-0 lg:pe-2" data-twe-nav-item-ref>
-							<!-- Dashboard link -->
-							<a class="text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2"
-								href="#" data-twe-nav-link-ref>Dashboard</a>
-						</li>
-					</ul>
-					<input type="search"
-						class="relative m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-secondary-500 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-surface transition duration-300 ease-in-out focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:bg-body-dark dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill"
-						placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
-					<!-- Left links -->
 				</div>
 
-				<!-- Right elements -->
-				<div class="relative flex items-center">
-					<!-- Icon -->
-					<a class="me-4 text-neutral-600 dark:text-white" href="#">
-						<span class="[&>svg]:w-5">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-								<path
-									d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-							</svg>
-						</span>
-					</a>
-
-					<!-- First dropdown container -->
-					<div class="relative" data-twe-dropdown-ref data-twe-dropdown-alignment="end">
-						<!-- First dropdown trigger -->
-						<a class="me-4 flex items-center text-neutral-600 dark:text-white" href="#"
-							id="dropdownMenuButton1" role="button" data-twe-dropdown-toggle-ref aria-expanded="false">
-							<!-- Dropdown trigger icon -->
-							<span class="[&>svg]:w-5">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-									<path fill-rule="evenodd"
-										d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
-										clip-rule="evenodd" />
+				<div class="w-1/2">
+					<form class="">   
+						<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+						<div class="relative">
+							<div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+								<svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
 								</svg>
-							</span>
-							<!-- Notification counter -->
-							<span
-								class="absolute -mt-4 ms-2.5 rounded-full bg-danger px-[0.35em] py-[0.15em] text-[0.6rem] font-bold leading-none text-white">1</span>
-						</a>
-						<!-- First dropdown menu -->
-						<ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
-							aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
-							<!-- First dropdown menu items -->
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Action</a>
-							</li>
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Another action</a>
-							</li>
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Something else here</a>
-							</li>
-						</ul>
-					</div>
-
-					<!-- Second dropdown container -->
-					<div class="relative" data-twe-dropdown-ref data-twe-dropdown-alignment="end">
-						<!-- Second dropdown trigger -->
-						<a class="flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
-							href="#" id="dropdownMenuButton2" role="button" data-twe-dropdown-toggle-ref
-							aria-expanded="false">
-							<!-- User avatar -->
-							<img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" class="rounded-full"
-								style="height: 25px; width: 25px" alt="" loading="lazy" />
-						</a>
-						<!-- Second dropdown menu -->
-						<ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
-							aria-labelledby="dropdownMenuButton2" data-twe-dropdown-menu-ref>
-							<!-- Second dropdown menu items -->
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Action</a>
-							</li>
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Another action</a>
-							</li>
-							<li>
-								<a class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-									href="#" data-twe-dropdown-item-ref>Something else here</a>
-							</li>
-						</ul>
-					</div>
+							</div>
+							
+							<input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Products, brands or categories" required />
+						</div>
+					</form>
+					
 				</div>
-				<!-- Right elements -->
+				<button class="bg-orange-400 rounded px-4 py-1 ml-3 text-white">Search</button>
+				<div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse w-1/4 justify-end gap-6">
+					<div>
+						<div class="flex" id="user-menu-button" data-dropdown-toggle="user-dropdown" >
+							<button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"  aria-expanded="false" data-dropdown-placement="bottom">
+								<span class="sr-only">Open user menu</span>
+								<img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+							</button>
+							<button class="ml-1">Account</button>
+						</div>
+							<!-- Dropdown menu -->
+							<div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+								{% if request.user.is_authenticated %}
+								<div class="px-4 py-3">
+									<span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username }}</span>
+									<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ request.user.email }}</span>
+								</div>
+								<ul class="py-2" aria-labelledby="user-menu-button">
+									<li>
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My Orders</a>
+									</li>
+									<li>
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Saved Items</a>
+									</li>
+									<li>
+									<a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+									</li>
+									{% else %}
+									<a href={% url "signup" %} class="block px-4 py-2 text-sm text-white hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white bg-orange-400 rounded">Sign in</a>
+									</li>
+								</ul>
+								{% endif %}
+							
+							
+							</div>
+							<button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+							<span class="sr-only">Open main menu</span>
+							<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+							</svg>
+							</button>
+					</div>
+					<div>
+						<i class="fa fa-shopping-cart text-3xl text-orange-400"></i><span class="ml-1">Cart</span>
+					</div>
+
+					
+
+
+					
+
+				</div>
 			</div>
-		</nav>
-	</div>
+  		</nav>
+    </div>
 
-	<script>
-		// Initialization for ES Users
-		import {
-			Collapse,
-			Dropdown,
-			initTWE,
-		} from "tw-elements";
-
-		initTWE({ Collapse, Dropdown });
-	</script>
-
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  </body>
 </html>
