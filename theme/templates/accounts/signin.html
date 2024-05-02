@@ -1,0 +1,55 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Account</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% tailwind_css %}
+</head>
+
+<body>
+    <div class="flex container px-4 mx-auto mt-10">
+        <div class="w-1/4"></div>
+        <div class="w-1/2 mx-8">
+            <div class="text-center text-gray-500 mb-10">
+                <div class="flex justify-center text-center mb-5">
+                    <img src={% static 'images/myjumia-top-logo.png' %} alt="Logo image" class="h-16 w-16">
+                </div>
+                <h3 class="font-bold">Welcome Back</h3>
+                <h5>Log in to your Shopper account</h5>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="items-center justify-center space-y-4">
+                    <div class="w-full mb-4">
+                        <input type="text" name="username" maxlength="64" required id="id_username"
+                            placeholder="username"
+                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+
+                    <div class="w-full mb-4">
+                        <input type="password" name="password" autocomplete="password" required
+                            aria-describedby="id_password1_helptext" id="password" placeholder="Password"
+                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <button type="submit"
+                        class="w-full px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-400">
+                        Login
+                    </button>
+                    <div class="flex justify-between">
+                        <div class=" text-gray-500">Dont have an account?<a href={% url "signup" %}
+                                class="text-orange-400 font-bold ml-3">Signup</a></div>
+                        <div><a href={% url "signup" %} class="text-orange-400 font-bold ml-3">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="w-1/4"></div>
+    </div>
+</body>
+
+</html>
