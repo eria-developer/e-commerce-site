@@ -147,3 +147,6 @@ NPM_BIN_PATH = '/snap/bin/npm'
 
 # setting auth_user_model
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+
+# handling static files 
