@@ -45,4 +45,9 @@ def user_signin(request):
     context = {
         "form": form,
     }
-    return render(request, "accounts/signin.html")
+    return render(request, "accounts/signin.html", context)
+
+
+def user_signout(request):
+    logout(request)
+    return redirect("home")
