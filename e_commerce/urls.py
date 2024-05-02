@@ -6,6 +6,6 @@ import accounts, store
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("account/", include("accounts.urls")),
-    path("", include("store.urls")),
+    path("/", include("store.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
