@@ -132,7 +132,8 @@ INSTALLED_APPS += [
     "tailwind",
     "theme",
     'django_browser_reload',
-    "accounts"
+    "accounts",
+    "store"
 ]
 MIDDLEWARE += [
     "django_browser_reload.middleware.BrowserReloadMiddleware",
