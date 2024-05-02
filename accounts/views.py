@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 from . import forms 
 
@@ -51,3 +51,26 @@ def user_signin(request):
 def user_signout(request):
     logout(request)
     return redirect("home")
+
+
+def password_change(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            messages.success(request, "Password has been changed successfully!!")
+            return redirect("password_change_done")
+        else:
+            for field, errors in form.items():
+                for error in errors:
+                    messages.error(request, f"{error} in {field}")
+    else:
+        form = PasswordChangeForm(request.user)
+    context = {
+        "form": form,
+    }
+    return render(request, "accounts/password_change.html", context)
+
+
+def password_change_done(request):
+    return render(request, "accounts/password_change_done.html")
