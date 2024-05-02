@@ -135,3 +135,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 NPM_BIN_PATH = '/snap/bin/npm'
+
+# setting auth_user_model
+AUTH_USER_MODEL = "accounts.CustomUser"
