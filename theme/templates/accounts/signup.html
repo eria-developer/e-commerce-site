@@ -11,45 +11,55 @@
 </head>
 
 <body>
-  <div class="container px-4 mx-16">
-    <form action="" method="post">
-      {% csrf_token %}
-      <div class="items-center justify-center space-y-4">
-        <div class="w-full mb-4">
-          <input type="text" name="firstname" maxlength="64" required id="id_firstname" placeholder="Firstname"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
-        </div>
-        <div class="w-full mb-4">
-          <input type="text" name="lastname" maxlength="64" required id="id_lastname" placeholder="Lastname"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
-        </div>
-        <div class="w-full mb-4">
-          <input type="email" name="email" maxlength="254" required id="id_email" placeholder="Email"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
-        </div>
-        <div class="w-full mb-4">
-          <select name="gender" required id="id_gender"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
-            <option value="" selected>---------</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </div>
-        <div class="w-full mb-4">
-          <input type="password" name="password1" autocomplete="new-password" required
-            aria-describedby="id_password1_helptext" id="id_password1" placeholder="Password"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
-        </div>
-        <div class="w-full mb-4">
-          <input type="password" name="password2" autocomplete="new-password" required
-            aria-describedby="id_password2_helptext" id="id_password2" placeholder="Confirm Password"
-            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
-        </div>
-        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-          Create Account
-        </button>
+  <div class="flex container px-4 mx-auto mt-10">
+    <div class="w-1/4"></div>
+    <div class="w-1/2">
+      <div class="text-center text-gray-500 mb-10">
+        <h3 class="font-bold">Create Your Account</h3>
+        <h5>Lets get started by creating your account</h5>
+        <h6>To keep your account safe, we need valid credentials</h6>
       </div>
-    </form>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="items-center justify-center space-y-4">
+          <div class="w-full mb-4">
+            <input type="text" name="firstname" maxlength="64" required id="id_firstname" placeholder="Firstname"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+          </div>
+          <div class="w-full mb-4">
+            <input type="text" name="lastname" maxlength="64" required id="id_lastname" placeholder="Lastname"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+          </div>
+          <div class="w-full mb-4">
+            <input type="email" name="email" maxlength="254" required id="id_email" placeholder="Email"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+          </div>
+          <div class="w-full mb-4">
+            <select name="gender" required id="id_gender"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+              <option value="" selected>---------</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="w-full mb-4">
+            <input type="password" name="password1" autocomplete="new-password" required
+              aria-describedby="id_password1_helptext" id="id_password1" placeholder="Password"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+          </div>
+          <div class="w-full mb-4">
+            <input type="password" name="password2" autocomplete="new-password" required
+              aria-describedby="id_password2_helptext" id="id_password2" placeholder="Confirm Password"
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500" />
+          </div>
+          <button type="submit" class="w-full px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-400">
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="w-1/4"></div>
+
   </div>
 </body>
 
