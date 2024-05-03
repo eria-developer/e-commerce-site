@@ -24,6 +24,20 @@
         <h5>Lets get started by creating your account</h5>
         <h6>To keep your account safe, we need valid credentials</h6>
       </div>
+
+      <div class="text-center mb-5">
+        <div>
+          {% if messages %}
+          <ul>
+            {% for message in messages %}
+            <li class="rounded text-sm text-red-500 ">
+              {{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+
       <form action="" method="post">
         {% csrf_token %}
         <div class="items-center justify-center space-y-4">

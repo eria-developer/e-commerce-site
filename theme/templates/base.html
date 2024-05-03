@@ -53,11 +53,18 @@
 					<div>
 						<div class="flex" id="user-menu-button" data-dropdown-toggle="user-dropdown">
 							<button type="button"
-								class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+								class="flex text-sm  rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
 								aria-expanded="false" data-dropdown-placement="bottom">
 								<span class="sr-only">Open user menu</span>
+								{% if request.user.is_authenticated %}
 								<img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
 									alt="user photo">
+								{% else %}
+								<div>
+									<i class="fa fa-user text-3xl text-orange-400"></i>
+								</div>
+								{% endif %}
+								
 							</button>
 							<button class="ml-1">Account</button>
 						</div>

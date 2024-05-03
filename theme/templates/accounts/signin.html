@@ -22,13 +22,13 @@
                 <h3 class="font-bold">Welcome Back</h3>
                 <h5>Log in to your Shopper account</h5>
             </div>
-            <div class="text-center">
+
+            <div class="text-center mb-5">
                 <div>
                     {% if messages %}
                     <ul>
                         {% for message in messages %}
-                        <li
-                            class="rounded text-sm  {% if message.tags == 'success' %}text-green-400 {% elif message.tags == 'error' %} text-red-400 {% elif message.tags == 'info' %} text-yellow-400 {% endif %}  ">
+                        <li class="rounded text-sm text-red-400 ">
                             {{ message }}</li>
                         {% endfor %}
                     </ul>
