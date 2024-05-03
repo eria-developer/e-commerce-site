@@ -66,10 +66,8 @@
 							id="user-dropdown">
 							{% if request.user.is_authenticated %}
 							<div class="px-4 py-3">
-								<span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username
-									}}</span>
-								<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{
-									request.user.email }}</span>
+								<span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username }}</span>
+								<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{request.user.email }}</span>
 							</div>
 							<ul class="py-2" aria-labelledby="user-menu-button">
 								<li>
@@ -116,15 +114,24 @@
 					<div>
 						<i class="fa fa-shopping-cart text-3xl text-orange-400"></i><span class="ml-1">Cart</span>
 					</div>
-
-
-
-
-
-
 				</div>
 			</div>
 		</nav>
+		<div class="flex">
+			<div class="w-1/4"></div>
+			<div class="w-1/2 text-center">
+				<div>
+					{% if messages %}
+					<ul>
+						{% for message in messages %}
+							<li class="rounded text-sm text-white {% if message.tags == 'success' %}bg-green-400 {% elif message.tags == 'error' %} bg-red-400 {% elif message.tags == 'info' %} bg-yellow-400 {% endif %}  ">{{ message }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</div>
+			</div>
+			<div class="w-1/4"></div>
+		</div>
 	</div>
 	{% block content %}
 	{% endblock content %}

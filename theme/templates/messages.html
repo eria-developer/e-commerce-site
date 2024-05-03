@@ -1,0 +1,15 @@
+<div class="flex">
+    <div class="w-1/4"></div>
+    <div class="w-1/2">
+        <div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <div class="w-1/4"></div>
+</div>
