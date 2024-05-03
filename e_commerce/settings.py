@@ -152,4 +152,5 @@ NPM_BIN_PATH = '/snap/bin/npm'
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 
-# handling static files 
+# handling password_reset
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

@@ -74,3 +74,7 @@ def password_change(request):
 
 def password_change_done(request):
     return render(request, "accounts/password_change_done.html")
+
+
+def password_reset(request):
+    pass
