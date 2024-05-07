@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}{{ category.name }}{% endblock title %}
+{% block content %}
+<div>
+  <div class="grid grid-cols-6 mt-24 gap-4 mx-16">
+    {% for product in products %}
+    <a href="">
+      <div>
+        <img
+          src="{{product.image.url}}"
+          alt="product photo"
+          srcset=""
+          class="rounded"
+        />
+        <p class="text-lg text-white text-center">{{product.name}}</p>
+        <hr class="border-t-4 border-indigo-600 mb-4" />
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

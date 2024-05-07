@@ -1,5 +1,22 @@
 {% extends "base.html" %} {% block title %}Shoppers Uganda{% endblock title %}
-
 {% block content %}
+<div>
+  <div class="grid grid-cols-6 mt-24 gap-4 mx-16">
+    {% for category in categories %}
+    <a href={% url "products_by_category" category.id %}>
+      <div>
+        <img
+          src="{{category.image.url}}"
+          alt="cat photo"
+          srcset=""
+          class="rounded"
+        />
+        <p class="text-lg text-white text-center">{{category.name}}</p>
+        <hr class="border-t-4 border-indigo-600 mb-4" />
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock content %}
