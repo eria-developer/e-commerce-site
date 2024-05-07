@@ -9,7 +9,11 @@
 	<title>{% block title %}{% endblock title %}</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<style>
+		{% block extra_css %}
+		
+		{% endblock extra_css %}
+	</style>
 
 	{% tailwind_css %}
 </head>
@@ -64,7 +68,7 @@
 									<i class="fa fa-user text-3xl text-orange-400"></i>
 								</div>
 								{% endif %}
-								
+
 							</button>
 							<button class="ml-1">Account</button>
 						</div>
@@ -73,13 +77,17 @@
 							id="user-dropdown">
 							{% if request.user.is_authenticated %}
 							<div class="px-4 py-3">
-								<span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username }}</span>
-								<span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{request.user.email }}</span>
+								<span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username
+									}}</span>
+								<span
+									class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{request.user.email
+									}}</span>
 							</div>
 							<ul class="py-2" aria-labelledby="user-menu-button">
 								<li>
 									<a href={% url "my_account" %}
-										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My account</a>
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My
+										account</a>
 								</li>
 								<li>
 									<a href="#"
@@ -130,7 +138,9 @@
 					{% if messages %}
 					<ul>
 						{% for message in messages %}
-							<li class="rounded text-sm text-white {% if message.tags == 'success' %}bg-green-400 {% elif message.tags == 'error' %} bg-red-400 {% elif message.tags == 'info' %} bg-yellow-400 {% endif %}  ">{{ message }}</li>
+						<li
+							class="rounded text-sm text-white {% if message.tags == 'success' %}bg-green-400 {% elif message.tags == 'error' %} bg-red-400 {% elif message.tags == 'info' %} bg-yellow-400 {% endif %}  ">
+							{{ message }}</li>
 						{% endfor %}
 					</ul>
 					{% endif %}
@@ -138,9 +148,10 @@
 			</div>
 			<div class="w-1/4"></div>
 		</div>
+		{% block content %}
+		{% endblock content %}
 	</div>
-	{% block content %}
-	{% endblock content %}
+	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
