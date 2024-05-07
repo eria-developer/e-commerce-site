@@ -24,7 +24,7 @@ def user_signup(request):
     context = {
         "form": form,
     }
-    return render(request, "accounts/signup.html", context)
+    return render("accounts/signup.html", context)
 
 
 def user_signin(request):
